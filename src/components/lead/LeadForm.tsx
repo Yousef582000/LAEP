@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Loader2, Sparkles, MessageSquare } from 'lucide-react';
 import type { LeadFormData } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
@@ -57,9 +57,36 @@ const LeadForm: React.FC<LeadFormProps> = ({ initialChallenge = '' }) => {
     }
 
     setStatus('submitting');
+
+    const whatsappNumber = '966565515077';
+
+    // Structured WhatsApp message format with all form details
+    const textMessage = lang === 'ar'
+      ? `السلام عليكم فريق تقنية IT، استفسار جديد من صفحة هبوط ليب 2026:\n\n` +
+        `• الاسم الكامل: ${formData.name}\n` +
+        `• اسم الشركة/المنشأة: ${formData.company}\n` +
+        (formData.jobTitle ? `• المسمى الوظيفي: ${formData.jobTitle}\n` : '') +
+        `• البريد الإلكتروني: ${formData.email}\n` +
+        `• رقم الجوال/الواتساب: ${formData.phone}\n` +
+        `• الخدمة المطلوبة: ${formData.lookingFor}\n` +
+        `• المدى الزمني المتوقع: ${formData.timeline}\n` +
+        (formData.challengeDetails ? `• تفاصيل التحدي/الفكرة: ${formData.challengeDetails}\n` : '')
+      : `Hello TQNiA IT Team, New Inquiry from LEAP 2026 Showcase:\n\n` +
+        `• Full Name: ${formData.name}\n` +
+        `• Company Name: ${formData.company}\n` +
+        (formData.jobTitle ? `• Job Title: ${formData.jobTitle}\n` : '') +
+        `• Business Email: ${formData.email}\n` +
+        `• Phone/WhatsApp: ${formData.phone}\n` +
+        `• Service Needed: ${formData.lookingFor}\n` +
+        `• Estimated Timeline: ${formData.timeline}\n` +
+        (formData.challengeDetails ? `• Challenge Details: ${formData.challengeDetails}\n` : '');
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
+
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
       setStatus('success');
-    }, 1200);
+    }, 400);
   };
 
   return (
@@ -93,6 +120,10 @@ const LeadForm: React.FC<LeadFormProps> = ({ initialChallenge = '' }) => {
               <p className="text-sm dark:text-gray-300 text-slate-600 max-w-md mx-auto">
                 {t.successDesc}
               </p>
+              <div className="p-4 rounded-xl dark:bg-white/5 bg-slate-100 text-xs text-emerald-500 font-bold max-w-md mx-auto flex items-center justify-center gap-2">
+                <MessageSquare className="w-4 h-4" />
+                <span>{lang === 'ar' ? 'تم توجيه الاستفسار وتفاصيل البيانات مباشرة للواتساب الرسمى' : 'Inquiry details sent directly to WhatsApp'}</span>
+              </div>
               <button
                 onClick={() => setStatus('idle')}
                 className="mt-4 px-6 py-2.5 rounded-xl bg-[#E92929] text-white font-bold text-xs uppercase shadow-md"
@@ -258,8 +289,8 @@ const LeadForm: React.FC<LeadFormProps> = ({ initialChallenge = '' }) => {
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
-                    <span>{t.submit}</span>
+                    <MessageSquare className="w-5 h-5" />
+                    <span>{lang === 'ar' ? 'إرسال الاستفسار وتوجيهه مباشرة للواتساب' : 'Send Inquiry via WhatsApp'}</span>
                   </>
                 )}
               </button>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar as CalendarIcon, X, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Calendar as CalendarIcon, X, CheckCircle2, ArrowRight, MessageSquare } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 
@@ -24,11 +24,6 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ isOpen, onClose, initialSub
 
   if (!isOpen) return null;
 
-  const handleBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    setBooked(true);
-  };
-
   const dates = [
     { date: '2026-03-09', label: lang === 'ar' ? 'الإثنين 9 مارس (اليوم الأول)' : 'Mon, Mar 9 (LEAP Day 1)' },
     { date: '2026-03-10', label: lang === 'ar' ? 'الثلاثاء 10 مارس (اليوم الثاني)' : 'Tue, Mar 10 (LEAP Day 2)' },
@@ -37,6 +32,40 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ isOpen, onClose, initialSub
   ];
 
   const times = ['10:00 AM', '11:00 AM', '02:00 PM', '03:30 PM', '05:00 PM'];
+
+  const handleBooking = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const whatsappNumber = '966565515077';
+    const selectedDateObj = dates.find((d) => d.date === selectedDate);
+    const dateLabel = selectedDateObj ? selectedDateObj.label : selectedDate;
+
+    // Formatted WhatsApp message string with all user details
+    const textMessage = lang === 'ar'
+      ? `السلام عليكم فريق تقنية IT، أود تأكيد حجز اجتماع في معرض ليب 2026:\n\n` +
+        `• الاسم: ${name}\n` +
+        `• الشركة/المنشأة: ${company}\n` +
+        `• البريد الإلكتروني: ${email}\n` +
+        `• رقم الجوال/الواتساب: ${phone}\n` +
+        `• التاريخ المستهدف: ${dateLabel}\n` +
+        `• التوقيت: ${selectedTime} (بتوقيت الرياض)\n` +
+        (notes ? `• التفاصيل/الموضوع: ${notes}\n` : '')
+      : `Hello TQNiA IT Team, I want to confirm a meeting booking for LEAP 2026:\n\n` +
+        `• Name: ${name}\n` +
+        `• Company: ${company}\n` +
+        `• Email: ${email}\n` +
+        `• Phone/WhatsApp: ${phone}\n` +
+        `• Preferred Date: ${dateLabel}\n` +
+        `• Preferred Time: ${selectedTime} (AST)\n` +
+        (notes ? `• Subject/Notes: ${notes}\n` : '');
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
+
+    // Open WhatsApp directly with all details
+    window.open(whatsappUrl, '_blank');
+
+    setBooked(true);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -51,7 +80,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ isOpen, onClose, initialSub
 
         {booked ? (
           <div className="text-center py-10 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#E92929]/20 text-[#E92929] flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <h3 className="text-2xl font-black dark:text-white text-slate-900">{t.reservedTitle}</h3>
@@ -59,15 +88,18 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ isOpen, onClose, initialSub
               {t.reservedDesc} <strong className="dark:text-white text-slate-900">{selectedDate} — {selectedTime}</strong>.
             </p>
             <div className="p-4 rounded-xl dark:bg-white/5 bg-slate-100 text-xs dark:text-slate-400 text-slate-600 space-y-1">
-              <div>{lang === 'ar' ? 'مستشار تقنية المستند:' : 'Assigned Executive:'} TQNiA Digital Advisor</div>
-              <div>{lang === 'ar' ? 'الموقع: معرض ليب الرياض / اجتماع افتراضي' : 'Location: LEAP Riyadh / Online Meeting'}</div>
+              <div className="flex items-center justify-center gap-1.5 text-emerald-500 font-bold">
+                <MessageSquare className="w-4 h-4" />
+                <span>{lang === 'ar' ? 'تم فتح تطبيق الواتساب وإرسال كافة تفاصيل الحجز بنجاح' : 'WhatsApp opened with full booking details'}</span>
+              </div>
+              <div>{lang === 'ar' ? 'مقر الاجتماع: معرض ليب 2026 بالرياض / اجتماع افتراضي' : 'Location: LEAP 2026 Riyadh / Online Meeting'}</div>
             </div>
             <button
               onClick={() => {
                 setBooked(false);
                 onClose();
               }}
-              className="px-6 py-2.5 rounded-xl bg-[#E92929] text-white font-bold text-xs uppercase"
+              className="px-6 py-2.5 rounded-xl bg-[#E92929] text-white font-bold text-xs uppercase shadow-md"
             >
               {lang === 'ar' ? 'تم' : 'Done'}
             </button>
@@ -183,7 +215,8 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ isOpen, onClose, initialSub
               type="submit"
               className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/30"
             >
-              <span>{t.confirm}</span>
+              <MessageSquare className="w-4 h-4" />
+              <span>{lang === 'ar' ? 'تأكيد الحجز وتوجيهه إلى الواتساب' : 'Confirm Booking via WhatsApp'}</span>
               <ArrowRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />
             </button>
           </form>
