@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --brand-primary: #E92929;
+    --brand-primary-glow: rgba(233, 41, 41, 0.35);
+    --brand-accent: #E92929;
+  }
+
+  /* Default Dark Mode Styling */
+  html.dark, :root:not(.light) {
+    --bg-main: #0A0202;
+    --bg-card: #0A0A0A;
+    --brand-text: rgba(255, 255, 255, 0.9);
+    --brand-slate: #94A3B8;
+    --brand-border: rgba(233, 41, 41, 0.3);
+    color-scheme: dark;
+  }
+
+  /* Light Mode Styling */
+  html.light {
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --brand-text: #0F172A;
+    --brand-slate: #475569;
+    --brand-border: rgba(233, 41, 41, 0.25);
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--brand-text);
+    font-family: 'Plus Jakarta Sans', 'Tajawal', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background: linear-gradient(180deg, #180303 0%, #050101 40%, #1A0303 70%, #080101 100%) !important;
+    background-attachment: fixed !important;
+    color: #F3F4F6 !important;
+  }
+
+  html.light body {
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 40%, #FFF5F5 70%, #F8FAFC 100%) !important;
+    background-attachment: fixed !important;
+    color: #0F172A !important;
+  }
+}
+
+/* Custom Grid & Glow Effects for Dark & Light Modes */
+html.dark .bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(233, 41, 41, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(233, 41, 41, 0.08) 1px, transparent 1px);
+}
+
+html.light .bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(233, 41, 41, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(233, 41, 41, 0.08) 1px, transparent 1px);
+}
+
+/* Glass Panel Styling for Dark & Light */
+html.dark .glass-panel {
+  background: linear-gradient(135deg, rgba(20, 4, 4, 0.88) 0%, rgba(8, 2, 2, 0.92) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 41, 41, 0.35) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(233, 41, 41, 0.12) !important;
+}
+
+html.light .glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 41, 41, 0.2) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 0 25px rgba(233, 41, 41, 0.08) !important;
+}
+
+html.dark .glass-panel-red {
+  background: linear-gradient(135deg, rgba(35, 6, 6, 0.92) 0%, rgba(15, 3, 3, 0.95) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 41, 41, 0.5) !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(233, 41, 41, 0.25) !important;
+}
+
+html.light .glass-panel-red {
+  background: linear-gradient(135deg, rgba(255, 245, 245, 0.95) 0%, rgba(255, 235, 235, 0.95) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(233, 41, 41, 0.35) !important;
+  box-shadow: 0 15px 40px rgba(233, 41, 41, 0.12) !important;
+}
+
+.red-glow-text {
+  text-shadow: 0 0 30px rgba(233, 41, 41, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #080101;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #E92929;
+  border-radius: 4px;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
