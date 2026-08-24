@@ -1,7 +1,5 @@
 import React from 'react';
-import { Calendar, ArrowDown, ChevronRight } from 'lucide-react';
-import LeapBadge from './LeapBadge';
-import HeroEcosystem from './HeroEcosystem';
+import { Calendar, MessageSquare, MapPin, Award, Users, Server, Globe, Headset, Rocket, Sparkles } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { translations } from '../../data/translations';
 
@@ -11,48 +9,82 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
-  const { lang, isRtl } = useLanguage();
+  const { lang } = useLanguage();
   const t = translations[lang].hero;
 
-  return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern dark:bg-black/40 bg-slate-50/50">
-      {/* Top Ambient Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#E92929]/15 rounded-full blur-[140px] pointer-events-none" />
+  const trustMetrics = [
+    { number: '20+', label: lang === 'ar' ? 'سنة خبرة' : 'Years Experience', icon: Award },
+    { number: '16,350+', label: lang === 'ar' ? 'عميل' : 'Enterprise Clients', icon: Users },
+    { number: '151,000+', label: lang === 'ar' ? 'خدمة مدعومة' : 'Supported Services', icon: Server },
+    { label: lang === 'ar' ? 'حلول عربية بمقاييس عالمية' : 'Global Arabic Solutions', icon: Globe },
+    { label: lang === 'ar' ? 'دعم فني على مدار الساعة' : '24/7 Technical Support', icon: Headset },
+    { label: lang === 'ar' ? 'من الفكرة إلى التوسع' : 'From Idea to Enterprise Scale', icon: Rocket },
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+  return (
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden dark:bg-[#0A0202] bg-slate-900 transition-colors duration-500 min-h-[660px] flex flex-col justify-between">
+      
+      {/* Full Prominent Hero Tech Background Banner Image */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src="/hero-tech-bg.png"
+          alt="TQNiA LEAP Tech Hero Background"
+          className="w-full h-full object-cover object-center opacity-80 sm:opacity-90 dark:opacity-80 filter dark:brightness-90 contrast-110 transition-all duration-700"
+        />
+        {/* Soft Vignette Gradients for Crisp Text Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t dark:from-[#0A0202] dark:via-[#0A0202]/45 dark:to-[#0A0202]/65 from-slate-950 via-slate-950/45 to-slate-950/65" />
+        <div className="absolute inset-0 bg-gradient-to-r dark:from-[#0A0202]/85 dark:via-transparent dark:to-[#0A0202]/85 from-slate-950/85 via-transparent to-slate-950/85" />
+      </div>
+
+      {/* Red Ambient Glow Accent */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E92929]/25 rounded-full blur-[150px] pointer-events-none z-0" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-12">
+        
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left / Right Column based on LTR/RTL */}
-          <div className="lg:col-span-7 space-y-6 text-start">
-            <div className="flex items-center gap-3">
-              <LeapBadge size="md" />
-              <span className="text-xs font-mono dark:text-slate-400 text-slate-500 uppercase tracking-widest font-semibold">
-                {t.eventEdition}
-              </span>
+          {/* LEAP 2026 Event Info (Directly over Full Background) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 text-center lg:text-start space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E92929] text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-[#E92929]/40">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{t.leapMeet}</span>
             </div>
 
-            {/* Primary Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight dark:text-white text-slate-900 leading-[1.15]">
+            <div className="space-y-1">
+              <h2 className="text-4xl sm:text-6xl font-black text-white font-mono tracking-tighter red-glow-text">
+                LEAP <span className="text-[#E92929] text-2xl sm:text-4xl font-mono">2026</span>
+              </h2>
+              <p className="text-sm font-semibold text-slate-200">
+                {t.leapLocation}
+              </p>
+              <p className="text-xs font-mono font-bold text-[#E92929]">
+                {t.leapDate}
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <button
+                onClick={onOpenMeeting}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/40 hover:scale-105"
+              >
+                <span>{t.leapBadge}</span>
+                <MapPin className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Primary Headline & Description Block */}
+          <div className="lg:col-span-7 space-y-6 text-start order-1 lg:order-2">
+            
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.18] drop-shadow-lg">
               <span>{t.mainHeadlinePrefix}</span>
-              <span className="text-[#E92929] red-glow-text">
+              <span className="text-[#E92929] red-glow-text font-mono">
                 {t.mainHeadlineHighlight}
               </span>
             </h1>
 
-            {/* Supporting Headline Matrix */}
-            <div className="inline-flex flex-wrap items-center gap-2 py-1">
-              {t.pills.map((item, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs sm:text-sm font-semibold dark:text-gray-200 text-slate-700 dark:bg-white/5 bg-white border dark:border-white/10 border-slate-200 px-3 py-1 rounded-lg backdrop-blur-md shadow-sm"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            {/* Hero Supporting Message */}
-            <p className="text-base sm:text-lg dark:text-gray-300 text-slate-600 max-w-2xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow">
               {t.description}
             </p>
 
@@ -60,45 +92,50 @@ const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <button
                 onClick={onOpenMeeting}
-                className="group relative inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl font-bold text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/35 hover:shadow-[#E92929]/55 hover:-translate-y-0.5 active:translate-y-0"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/50 hover:shadow-[#E92929]/70 hover:-translate-y-0.5"
               >
                 <Calendar className="w-5 h-5" />
                 <span>{t.ctaMeeting}</span>
-                <ChevronRight className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${isRtl ? 'rotate-180' : ''}`} />
               </button>
 
               <button
                 onClick={onScrollToChallenges}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm tracking-wider uppercase dark:text-white text-slate-800 dark:bg-white/5 bg-white border dark:border-white/15 border-slate-300 hover:border-[#E92929] transition-all backdrop-blur-md shadow-sm"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-sm tracking-wider uppercase text-white bg-black/60 backdrop-blur-md border border-white/20 hover:border-[#E92929] transition-all shadow-lg"
               >
-                <span>{t.ctaChallenge}</span>
-                <ArrowDown className="w-4 h-4 text-[#E92929]" />
+                <MessageSquare className="w-4 h-4 text-[#E92929]" />
+                <span>{t.ctaTalk}</span>
               </button>
             </div>
 
-            {/* Value Proposition Pills */}
-            <div className="pt-6 border-t dark:border-white/10 border-slate-200 flex flex-wrap items-center gap-6 text-xs dark:text-slate-400 text-slate-500">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#E92929]" />
-                <span>{t.propReady}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>{t.propRiyadh}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                <span>{t.propCustom}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right / Left Column: Dynamic Ecosystem Graph */}
-          <div className="lg:col-span-5">
-            <HeroEcosystem />
           </div>
 
         </div>
+
+        {/* Bottom Trust Metrics Bar */}
+        <div className="pt-8 border-t border-white/15">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {trustMetrics.map((m, idx) => {
+              const IconComponent = m.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-center space-y-2 shadow-lg hover:border-[#E92929]/50 transition-all group"
+                >
+                  <IconComponent className="w-5 h-5 text-[#E92929] mx-auto group-hover:scale-110 transition-transform" />
+                  {m.number ? (
+                    <div className="text-xl sm:text-2xl font-black text-[#E92929] font-mono">
+                      {m.number}
+                    </div>
+                  ) : null}
+                  <div className="text-xs font-bold text-white leading-snug">
+                    {m.label}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   );

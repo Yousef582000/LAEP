@@ -16,8 +16,16 @@ export const translations = {
     // Hero
     hero: {
       eventEdition: 'النسخة الرسمية لمعرض ليب 2026',
-      mainHeadlinePrefix: 'تقنية تعمل ',
-      mainHeadlineHighlight: 'من أجل عملك وتتكيّف معه.',
+      mainHeadlinePrefix: 'منصة متجر احترافية وحلول مطاعم متكاملة لنجاح أعمالك ',
+      mainHeadlineHighlight: 'online',
+      description: 'نصمم ونطور منصات التجارة الإلكترونية وتطبيقات وأنظمة المطاعم التي تعزز مبيعاتك، تبسط عملياتك، وتمنح عملاءك تجربة لا تُنسى.',
+      ctaMeeting: 'احجز استشارتك المجانية',
+      ctaTalk: 'تحدث مع فريقنا',
+      leapMeet: 'نلتقي في',
+      leapTitle: 'LEAP 2026',
+      leapLocation: 'الرياض - المملكة العربية السعودية',
+      leapDate: '9 - 12 فبراير 2026',
+      leapBadge: 'نحن في انتظاركم في LEAP',
       pills: [
         'التحول الرقمي',
         'أتمتة الأعمال',
@@ -26,9 +34,6 @@ export const translations = {
         'منظومة T FOOD',
         'أنظمة العقارات T REAL ESTATE',
       ],
-      description: 'من أتمتة العمليات الحالية إلى بناء منتجات رقمية مبتكرة، تساعد شركة تقنية IT المنشآت والشركات على تحويل التحديات المعقدة إلى حلول رقمية مرنة وقابلة للتوسع.',
-      ctaMeeting: 'احجز اجتماعاً 30 دقيقة',
-      ctaChallenge: 'أخبرنا بتحديات عملك',
       propReady: 'منصات جاهزة للإطلاق',
       propRiyadh: 'حضور مباشر في الرياض، المملكة العربية السعودية',
       propCustom: 'هندسة برمجية مخصصة للمنشآت',
@@ -193,6 +198,13 @@ export const translations = {
       navTitle: 'روابط الموقع',
       hqTitle: 'مقر الرياض',
       rights: 'جميع الحقوق محفوظة لشركة تقنية IT. الصفحة الرسمية لاستعراض الخدمات في معرض ليب 2026 بالرياض.',
+    },
+    // About TQNiA
+    about: {
+      tag: 'الملف التعريفي الرسمي',
+      title: 'عن شركة تقنية IT',
+      description: 'شركة تقنية IT هي شريكك الموثوق في التقنية والتحول الرقمي. نحن متخصصون في بناء حلول رقمية قابلة للتوسع مصممة حول منطق العمل الفريد لكل منشأة — نربط بين المنصات الجاهزة للإطلاق والهندسة البرمجية المخصصة بالكامل.',
+      websiteBtn: 'زيارة الموقع الرسمي (home.tqniait.com)',
     }
   },
 
@@ -213,8 +225,16 @@ export const translations = {
     // Hero
     hero: {
       eventEdition: 'LEAP 2026 Official Event Edition',
-      mainHeadlinePrefix: 'TECHNOLOGY THAT WORKS ',
-      mainHeadlineHighlight: 'AROUND YOUR BUSINESS.',
+      mainHeadlinePrefix: 'Enterprise E-Commerce & Restaurant Solutions to Scale Your Business ',
+      mainHeadlineHighlight: 'online',
+      description: 'We design and develop scalable e-commerce platforms, food ordering systems, and enterprise software that boost your sales, simplify operations, and deliver memorable customer experiences.',
+      ctaMeeting: 'BOOK FREE CONSULTATION',
+      ctaTalk: 'TALK TO OUR TEAM',
+      leapMeet: 'MEET US AT',
+      leapTitle: 'LEAP 2026',
+      leapLocation: 'Riyadh - Kingdom of Saudi Arabia',
+      leapDate: '9 - 12 February 2026',
+      leapBadge: 'We Are Waiting for You at LEAP',
       pills: [
         'Digital Transformation',
         'Business Automation',
@@ -223,9 +243,6 @@ export const translations = {
         'T FOOD Platform',
         'T REAL ESTATE Systems',
       ],
-      description: 'From automating existing operations to building new digital products, TQNiA helps businesses turn complex challenges into scalable digital solutions.',
-      ctaMeeting: 'BOOK A 30-MINUTE MEETING',
-      ctaChallenge: 'TELL US YOUR CHALLENGE',
       propReady: 'Ready-to-Deploy Platforms',
       propRiyadh: 'Direct Presence in Riyadh, Saudi Arabia',
       propCustom: 'Custom Enterprise Software Engineering',
@@ -390,6 +407,13 @@ export const translations = {
       navTitle: 'NAVIGATION',
       hqTitle: 'RIYADH HEADQUARTERS',
       rights: 'All rights reserved. LEAP 2026 Riyadh Official Showcase Page.',
+    },
+    // About TQNiA
+    about: {
+      tag: 'Official Corporate Profile',
+      title: 'ABOUT TQNiA IT',
+      description: 'TQNiA IT is a trusted technology and digital transformation partner. We specialize in building scalable digital solutions around the unique operational logic of each business — bridging ready-to-deploy platforms with full custom engineering.',
+      websiteBtn: 'Visit Official Website (home.tqniait.com)',
     }
   }
 };

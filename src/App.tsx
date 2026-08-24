@@ -95,14 +95,14 @@ function MainAppContent() {
         <WhyTqnia />
 
         {/* 10. Technology Architecture & Security Standards */}
-        <TechnologySection />
+        {/* <TechnologySection /> */}
 
         {/* 11. Saudi Arabia Regional Presence & Riyadh Hub */}
         <SaudiPresence />
 
         {/* 12. Factual Track Record & Client Experience */}
-        <TrustSection />
-        <Testimonials />
+        {/* <TrustSection />
+        <Testimonials /> */}
 
         {/* 13. Corporate Profile */}
         <AboutTqnia />

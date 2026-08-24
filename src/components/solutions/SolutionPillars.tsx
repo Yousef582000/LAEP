@@ -48,13 +48,13 @@ const SolutionPillars: React.FC<SolutionPillarsProps> = ({ onScrollToProducts })
       capabilities: lang === 'ar' ? ['تكامل واجهات APIs', 'ربط أنظمة الـ ERP', 'بوابات الدفع السعودية', 'مزامنة البيانات لحظياً'] : ['RESTful & GraphQL APIs', 'ERP & CRM Integration', 'Saudi Payment Gateways', 'Real-Time Sync'],
       iconName: 'Share2',
     },
-    {
-      id: 'product-modernization',
-      title: lang === 'ar' ? 'تحديث وتطوير الأنظمة الحالية' : 'System Modernization',
-      description: lang === 'ar' ? 'إعادة تطوير البنية التحتية والبرمجيات القديمة لتصبح سريعة وآمنة وقابلة للتوسع والنمو مستقبلاً.' : 'Refactoring legacy codebase, cloud infrastructure migration, and UI/UX modernization for improved performance.',
-      capabilities: lang === 'ar' ? ['تحسين السرعة والأداء', 'التحول إلى الـ Cloud', 'تحديث تجربة المستخدم UI/UX', 'الأمان والامتثال'] : ['Performance Optimization', 'Cloud Migration', 'UI/UX Redesign', 'Security Hardening'],
-      iconName: 'Layout',
-    },
+    // {
+    //   id: 'product-modernization',
+    //   title: lang === 'ar' ? 'تحديث وتطوير الأنظمة الحالية' : 'System Modernization',
+    //   description: lang === 'ar' ? 'إعادة تطوير البنية التحتية والبرمجيات القديمة لتصبح سريعة وآمنة وقابلة للتوسع والنمو مستقبلاً.' : 'Refactoring legacy codebase, cloud infrastructure migration, and UI/UX modernization for improved performance.',
+    //   capabilities: lang === 'ar' ? ['تحسين السرعة والأداء', 'التحول إلى الـ Cloud', 'تحديث تجربة المستخدم UI/UX', 'الأمان والامتثال'] : ['Performance Optimization', 'Cloud Migration', 'UI/UX Redesign', 'Security Hardening'],
+    //   iconName: 'Layout',
+    // },
   ];
 
   return (
@@ -78,7 +78,7 @@ const SolutionPillars: React.FC<SolutionPillarsProps> = ({ onScrollToProducts })
         </div>
 
         {/* 6 Solution Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {solutionsList.map((solution) => (
             <SolutionCard key={solution.id} solution={solution} />
           ))}

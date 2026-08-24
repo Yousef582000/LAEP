@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import TStoreMockup from './TStoreMockup';
-import TFoodMockup from './TFoodMockup';
-import TRealEstateMockup from './TRealEstateMockup';
+import ProductBanner from './ProductBanner';
 import ProductFlow from './ProductFlow';
 import { ShoppingBag, Utensils, Building2, CheckCircle2, ArrowRight, Zap } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
@@ -26,8 +24,8 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
     {
       id: 't-store' as const,
       name: 'T STORE',
-      category: lang === 'ar' ? 'منصة التجارة الإلكترونية متعددة التجار' : 'MULTI-VENDOR E-COMMERCE PLATFORM',
-      headline: lang === 'ar' ? 'أنشئ وسع سوقك الإلكتروني المتعدد التجار.' : 'BUILD YOUR OWN MARKETPLACE.',
+      category: lang === 'ar' ? 'منصة التجارة الإلكترونية' : ' E-COMMERCE PLATFORM',
+      headline: lang === 'ar' ? 'أنشئ وسع سوقك الإلكتروني .' : 'BUILD YOUR OWN MARKETPLACE.',
       subheadline: lang === 'ar' ? 'منصة تجارة إلكترونية متكاملة تتيح لك إطلاق وتشغيل وإدارة الأسواق الرقمية المتعددة البائعين.' : 'A complete multi-vendor commerce platform designed to launch, operate, and scale digital marketplaces.',
       description: lang === 'ar' ? 'تُعد منصة T STORE حل شركة تقنية IT الجاهز لإطلاق الأسواق الرقمية. صُممت لتتحمل التوسع العالي، الإدارة المركزية للبائعين، الأتمتة الكاملة لحساب العمولات، وتسوية الدفع الموحدة.' : 'T STORE is TQNiA’s ready-to-deploy multi-vendor e-commerce platform. Built for high scalability, central vendor control, automated commission processing, and unified customer checkout.',
       businessValue: lang === 'ar' ? [
@@ -195,11 +193,11 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
 
               {/* Business Value Bullets */}
               <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-500">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
                   {t.businessValue}
                 </h4>
                 {currentProduct.businessValue.map((val, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-sm dark:text-gray-200 text-slate-800">
+                  <div key={idx} className="flex items-start gap-2.5 text-sm dark:text-gray-200 text-slate-800 font-medium">
                     <CheckCircle2 className="w-5 h-5 text-[#E92929] shrink-0 mt-0.5" />
                     <span>{val}</span>
                   </div>
@@ -207,8 +205,8 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
               </div>
 
               {/* Key Features Grid */}
-              <div className="pt-4 border-t dark:border-white/10 border-slate-200 space-y-3">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-500">
+              <div className="pt-4 border-t dark:border-white/10 border-slate-300 space-y-3">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
                   {t.features}
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -233,11 +231,9 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
               </div>
             </div>
 
-            {/* Right Product UI Mockup Column */}
+            {/* Right Product Advertising Banner Column */}
             <div className="lg:col-span-6 w-full overflow-hidden">
-              {currentProduct.id === 't-store' && <TStoreMockup />}
-              {currentProduct.id === 't-food' && <TFoodMockup />}
-              {currentProduct.id === 't-real-estate' && <TRealEstateMockup />}
+              <ProductBanner productId={currentProduct.id} />
             </div>
 
           </div>

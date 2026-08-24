@@ -38,14 +38,14 @@ const ChallengeSection: React.FC<ChallengeSectionProps> = ({ onSelectChallengeFo
       outcomes: lang === 'ar' ? ['تطابق البيانات لحظياً', 'دعم بوابات الدفع المحلية', 'ربط أنظمة المحاسبة والـ ERP'] : ['Real-time data sync', 'Local gateway support', 'ERP & Ledger sync'],
       icon: 'Layers'
     },
-    {
-      id: 'modernize',
-      title: t.tabs.modernize.title,
-      summary: t.tabs.modernize.summary,
-      description: lang === 'ar' ? 'تحديث وتطوير الأنظمة القديمة ونقلها إلى السحابة مع ضمان استمرارية التشغيل وأمان البيانات.' : 'Legacy system refactoring, cloud migration, and modern architectural transformation with zero downtime.',
-      outcomes: lang === 'ar' ? ['أمان عالي ومعايير سيبرانية', 'سرعة الاستجابة والتحميل', 'سهولة الصيانة والتوسعة'] : ['High security compliance', 'Fast API response times', 'Easier maintenance'],
-      icon: 'Zap'
-    },
+    // {
+    //   id: 'modernize',
+    //   title: t.tabs.modernize.title,
+    //   summary: t.tabs.modernize.summary,
+    //   description: lang === 'ar' ? 'تحديث وتطوير الأنظمة القديمة ونقلها إلى السحابة مع ضمان استمرارية التشغيل وأمان البيانات.' : 'Legacy system refactoring, cloud migration, and modern architectural transformation with zero downtime.',
+    //   outcomes: lang === 'ar' ? ['أمان عالي ومعايير سيبرانية', 'سرعة الاستجابة والتحميل', 'سهولة الصيانة والتوسعة'] : ['High security compliance', 'Fast API response times', 'Easier maintenance'],
+    //   icon: 'Zap'
+    // },
     {
       id: 'grow',
       title: t.tabs.grow.title,
@@ -79,7 +79,7 @@ const ChallengeSection: React.FC<ChallengeSectionProps> = ({ onSelectChallengeFo
         </div>
 
         {/* 5 Selectable Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {challengesList.map((challenge) => (
             <ChallengeCard
               key={challenge.id}
