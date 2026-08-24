@@ -10,11 +10,11 @@ const Footer: React.FC = () => {
   const t = translations[lang].footer;
 
   return (
-    <footer className="dark:bg-[#000000] bg-slate-900 border-t dark:border-white/10 border-slate-800 pt-16 pb-12 relative text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-start">
+    <footer className="dark:bg-[#000000] bg-slate-900 border-t dark:border-white/10 border-slate-800 pt-12 sm:pt-16 pb-8 sm:pb-12 relative text-gray-300">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 space-y-8 sm:space-y-12 text-start">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
           
           {/* Brand Col */}
           <div className="lg:col-span-4 space-y-4">

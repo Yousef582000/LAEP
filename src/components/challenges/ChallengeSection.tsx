@@ -59,27 +59,27 @@ const ChallengeSection: React.FC<ChallengeSectionProps> = ({ onSelectChallengeFo
   const selectedChallenge = challengesList.find((c) => c.id === selectedId) || challengesList[0];
 
   return (
-    <section id="challenges" className="py-24 dark:bg-gradient-to-b dark:from-[#000000] dark:via-[#1A0303] dark:to-[#000000] bg-slate-100/70 relative border-t dark:border-[#E92929]/20 border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="challenges" className="py-16 sm:py-24 dark:bg-gradient-to-b dark:from-[#000000] dark:via-[#1A0303] dark:to-[#000000] bg-slate-100/70 relative border-t dark:border-[#E92929]/20 border-slate-200">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E92929]/15 border border-[#E92929]/40 text-[#E92929] text-xs font-bold uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{t.tag}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
             {t.title}
           </h2>
 
-          <p className="text-base sm:text-lg dark:text-gray-300 text-slate-600">
+          <p className="text-sm sm:text-lg dark:text-gray-300 text-slate-600">
             {t.subtitle}
           </p>
         </div>
 
-        {/* 5 Selectable Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {/* 4 Selectable Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
           {challengesList.map((challenge) => (
             <ChallengeCard
               key={challenge.id}
@@ -99,34 +99,34 @@ const ChallengeSection: React.FC<ChallengeSectionProps> = ({ onSelectChallengeFo
         </div>
 
         {/* Dynamic Detail Outcome Drawer */}
-        <div className="glass-panel-red p-6 sm:p-10 rounded-3xl border border-[#E92929]/40 shadow-2xl relative overflow-hidden">
+        <div className="glass-panel-red p-4 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#E92929]/40 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#E92929]/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center text-start">
             
             {/* Left: Summary & Outcomes */}
-            <div className="lg:col-span-12 space-y-6">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold tracking-widest uppercase bg-[#E92929] text-white px-3 py-1 rounded-full shadow-md">
+            <div className="lg:col-span-12 space-y-4 sm:space-y-6">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <span className="text-[11px] sm:text-xs font-mono font-bold tracking-widest uppercase bg-[#E92929] text-white px-3 py-1 rounded-full shadow-md">
                   {t.targetOutcome}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold dark:text-white text-slate-900">
+                <h3 className="text-xl sm:text-3xl font-extrabold dark:text-white text-slate-900">
                   {selectedChallenge.title} {t.path}
                 </h3>
               </div>
 
-              <p className="text-base dark:text-gray-300 text-slate-700 leading-relaxed">
+              <p className="text-sm sm:text-base dark:text-gray-300 text-slate-700 leading-relaxed font-normal">
                 {selectedChallenge.description}
               </p>
 
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest">
+              <div className="space-y-2.5 sm:space-y-3">
+                <h4 className="text-[11px] sm:text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest">
                   {t.keyBenefits}
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
                   {selectedChallenge.outcomes.map((outcome, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-sm dark:text-gray-200 text-slate-800 p-3 rounded-xl dark:bg-white/5 bg-white border dark:border-white/10 border-slate-200">
-                      <CheckCircle2 className="w-5 h-5 text-[#E92929] shrink-0" />
+                    <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm dark:text-gray-200 text-slate-800 p-2.5 sm:p-3 rounded-xl dark:bg-white/5 bg-white border dark:border-white/10 border-slate-200 shadow-sm">
+                      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E92929] shrink-0" />
                       <span>{outcome}</span>
                     </div>
                   ))}
@@ -136,7 +136,7 @@ const ChallengeSection: React.FC<ChallengeSectionProps> = ({ onSelectChallengeFo
               <div className="pt-2">
                 <button
                   onClick={() => onSelectChallengeForForm(selectedChallenge.title)}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/30"
+                  className="w-full min-[400px]:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/30"
                 >
                   <span>{t.ctaSolve}</span>
                   <ArrowRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />

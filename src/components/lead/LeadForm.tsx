@@ -90,27 +90,27 @@ const LeadForm: React.FC<LeadFormProps> = ({ initialChallenge = '' }) => {
   };
 
   return (
-    <section id="contact" className="py-24 dark:bg-gradient-to-b dark:from-[#1C0404] dark:via-[#0A0A0A] dark:to-[#000000] bg-slate-100 relative border-t dark:border-[#E92929]/25 border-slate-200">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-16 sm:py-24 dark:bg-gradient-to-b dark:from-[#1C0404] dark:via-[#0A0A0A] dark:to-[#000000] bg-slate-100 relative border-t dark:border-[#E92929]/25 border-slate-200">
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-12 space-y-4">
+        <div className="text-center mb-8 sm:mb-12 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E92929]/15 border border-[#E92929]/40 text-[#E92929] text-xs font-bold uppercase tracking-widest">
             <Sparkles className="w-4 h-4" />
             <span>{t.tag}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
             {t.title}
           </h2>
 
-          <p className="text-base sm:text-lg dark:text-gray-300 text-slate-600">
+          <p className="text-sm sm:text-lg dark:text-gray-300 text-slate-600">
             {t.subtitle}
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="glass-panel-red p-6 sm:p-12 rounded-3xl border border-[#E92929]/40 shadow-2xl relative">
+        <div className="glass-panel-red p-4 sm:p-12 rounded-2xl sm:rounded-3xl border border-[#E92929]/40 shadow-2xl relative">
           {status === 'success' ? (
             <div className="text-center py-12 space-y-4 animate-fadeIn">
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">

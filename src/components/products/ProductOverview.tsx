@@ -122,29 +122,29 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
   const currentProduct = productsList.find((p) => p.id === selectedProductId) || productsList[0];
 
   return (
-    <section id="products" className="py-24 dark:bg-gradient-to-b dark:from-[#000000] dark:via-[#1E0404] dark:to-[#000000] bg-slate-100 relative border-t dark:border-[#E92929]/20 border-slate-200">
+    <section id="products" className="py-16 sm:py-24 dark:bg-gradient-to-b dark:from-[#000000] dark:via-[#1E0404] dark:to-[#000000] bg-slate-100 relative border-t dark:border-[#E92929]/20 border-slate-200">
       {/* Background Glow */}
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#E92929]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E92929]/10 rounded-full blur-[120px] sm:blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E92929]/15 border border-[#E92929]/40 text-[#E92929] text-xs font-bold uppercase tracking-widest">
             <Zap className="w-3.5 h-3.5" />
             <span>{t.tag}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
             {t.title}
           </h2>
 
-          <p className="text-base sm:text-lg dark:text-gray-300 text-slate-600">
+          <p className="text-sm sm:text-lg dark:text-gray-300 text-slate-600">
             {t.subtitle}
           </p>
 
           {/* Interactive Reusable Product Switcher Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-4 sm:pt-6">
             {productsList.map((p) => {
               const Icon = iconMap[p.id] || ShoppingBag;
               const isSelected = p.id === selectedProductId;
@@ -152,18 +152,18 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
                 <button
                   key={p.id}
                   onClick={() => setSelectedProductId(p.id)}
-                  className={`flex items-center gap-2.5 px-6 py-3 rounded-2xl font-extrabold text-sm tracking-wide transition-all duration-300 border ${
+                  className={`flex items-center gap-2 px-3.5 py-2.5 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl font-extrabold text-xs sm:text-sm tracking-wide transition-all duration-300 border ${
                     isSelected
                       ? 'bg-[#E92929] border-[#E92929] text-white shadow-xl shadow-[#E92929]/40 ring-2 ring-[#E92929]'
                       : 'dark:bg-[#0A0A0A] bg-white dark:border-white/10 border-slate-200 dark:text-gray-400 text-slate-600 hover:text-[#E92929] dark:hover:text-white'
                   }`}
                 >
                   <div
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center ${
                       isSelected ? 'bg-black text-[#E92929]' : 'bg-white/5 text-gray-400'
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                   <span>{p.name}</span>
                 </button>
@@ -173,43 +173,43 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
         </div>
 
         {/* Selected Product Interactive Showcase Card */}
-        <div className="glass-panel-red p-6 sm:p-12 rounded-3xl border border-[#E92929]/50 shadow-2xl space-y-12 transition-all duration-500">
+        <div className="glass-panel-red p-4 sm:p-12 rounded-2xl sm:rounded-3xl border border-[#E92929]/50 shadow-2xl space-y-8 sm:space-y-12 transition-all duration-500">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-6 space-y-6 text-start">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-[#E92929] text-white">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-start">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono font-bold tracking-widest uppercase bg-[#E92929] text-white">
                 <span>{currentProduct.category}</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-black dark:text-white text-slate-900 leading-tight">
+              <h3 className="text-2xl sm:text-4xl font-black dark:text-white text-slate-900 leading-tight">
                 {currentProduct.headline}
               </h3>
 
-              <p className="text-base dark:text-gray-300 text-slate-700 leading-relaxed font-normal">
+              <p className="text-sm sm:text-base dark:text-gray-300 text-slate-700 leading-relaxed font-normal">
                 {currentProduct.description}
               </p>
 
               {/* Business Value Bullets */}
-              <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
+              <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
+                <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
                   {t.businessValue}
                 </h4>
                 {currentProduct.businessValue.map((val, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-sm dark:text-gray-200 text-slate-800 font-medium">
-                    <CheckCircle2 className="w-5 h-5 text-[#E92929] shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2 sm:gap-2.5 text-xs sm:text-sm dark:text-gray-200 text-slate-800 font-medium">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E92929] shrink-0 mt-0.5" />
                     <span>{val}</span>
                   </div>
                 ))}
               </div>
 
               {/* Key Features Grid */}
-              <div className="pt-4 border-t dark:border-white/10 border-slate-300 space-y-3">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
+              <div className="pt-3 sm:pt-4 border-t dark:border-white/10 border-slate-300 space-y-2.5 sm:space-y-3">
+                <h4 className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest dark:text-slate-400 text-slate-700">
                   {t.features}
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {currentProduct.features.map((feat, idx) => (
                     <div key={idx} className="p-3 rounded-xl dark:bg-black/50 bg-white border dark:border-white/10 border-slate-200 space-y-1 shadow-sm">
                       <div className="font-bold dark:text-white text-slate-900 text-xs">{feat.title}</div>
@@ -220,10 +220,10 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ onOpenMeetingWithSubj
               </div>
 
               {/* Product CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2 sm:pt-4">
                 <button
                   onClick={() => onOpenMeetingWithSubject(`Demo Request: ${currentProduct.name}`)}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/35 hover:-translate-y-0.5"
+                  className="w-full min-[400px]:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/35"
                 >
                   <span>{currentProduct.secondaryCta}</span>
                   <ArrowRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />

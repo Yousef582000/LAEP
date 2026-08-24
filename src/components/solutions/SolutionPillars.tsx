@@ -58,49 +58,49 @@ const SolutionPillars: React.FC<SolutionPillarsProps> = ({ onScrollToProducts })
   ];
 
   return (
-    <section id="solutions" className="py-24 dark:bg-[#000000] bg-slate-50 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="solutions" className="py-16 sm:py-24 dark:bg-[#000000] bg-slate-50 relative">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full dark:bg-white/5 bg-slate-200 border dark:border-white/10 border-slate-300 dark:text-gray-300 text-slate-800 text-xs font-bold uppercase tracking-widest">
             <Layers className="w-3.5 h-3.5 text-[#E92929]" />
             <span>{t.tag}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
+          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black dark:text-white text-slate-900 tracking-tight">
             {t.title}
           </h2>
 
-          <p className="text-base sm:text-lg dark:text-gray-300 text-slate-600">
+          <p className="text-sm sm:text-lg dark:text-gray-300 text-slate-600">
             {t.subtitle}
           </p>
         </div>
 
-        {/* 6 Solution Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* 5 Solution Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-16">
           {solutionsList.map((solution) => (
             <SolutionCard key={solution.id} solution={solution} />
           ))}
         </div>
 
         {/* Strong Transition Banner to Ready Products */}
-        <div className="glass-panel p-8 sm:p-10 rounded-3xl border border-[#E92929]/40 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
+        <div className="glass-panel p-4 sm:p-10 rounded-2xl sm:rounded-3xl border border-[#E92929]/40 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
           <div className="absolute -top-12 -left-12 w-40 h-40 bg-[#E92929]/10 rounded-full blur-2xl pointer-events-none" />
-          <div className="relative z-10 space-y-4">
-            <span className="text-xs font-mono uppercase font-bold tracking-widest text-[#E92929]">
+          <div className="relative z-10 space-y-3 sm:space-y-4">
+            <span className="text-[11px] sm:text-xs font-mono uppercase font-bold tracking-widest text-[#E92929]">
               {t.readyBannerTag}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 tracking-tight">
+            <h3 className="text-xl sm:text-3xl font-black dark:text-white text-slate-900 tracking-tight">
               {t.readyBannerTitle}
             </h3>
-            <p className="text-sm sm:text-base dark:text-gray-300 text-slate-600 max-w-xl mx-auto">
+            <p className="text-xs sm:text-base dark:text-gray-300 text-slate-600 max-w-xl mx-auto">
               {t.readyBannerSub}
             </p>
 
             <button
               onClick={onScrollToProducts}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/30 hover:-translate-y-0.5"
+              className="w-full min-[400px]:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-xs tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-lg shadow-[#E92929]/30"
             >
               <span>{t.readyBannerCta}</span>
               <ArrowRight className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />

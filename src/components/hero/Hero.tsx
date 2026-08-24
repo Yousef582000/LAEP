@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
   ];
 
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden dark:bg-[#0A0202] bg-slate-900 transition-colors duration-500 min-h-[660px] flex flex-col justify-between">
+    <section className="relative pt-24 pb-12 sm:pt-32 sm:pb-16 md:pt-40 md:pb-24 overflow-hidden dark:bg-[#0A0202] bg-slate-900 transition-colors duration-500 min-h-[600px] flex flex-col justify-between">
       
       {/* Full Prominent Hero Tech Background Banner Image */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -37,36 +37,36 @@ const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
       </div>
 
       {/* Red Ambient Glow Accent */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#E92929]/25 rounded-full blur-[150px] pointer-events-none z-0" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[300px] sm:h-[450px] bg-[#E92929]/25 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-12">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-8 sm:space-y-12">
         
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           
-          {/* LEAP 2026 Event Info (Directly over Full Background) */}
-          <div className="lg:col-span-5 order-2 lg:order-1 text-center lg:text-start space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E92929] text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-[#E92929]/40">
+          {/* LEAP 2026 Event Info */}
+          <div className="lg:col-span-5 order-2 lg:order-1 text-center lg:text-start space-y-3 sm:space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#E92929] text-white text-[11px] sm:text-xs font-black uppercase tracking-wider shadow-lg shadow-[#E92929]/40">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{t.leapMeet}</span>
             </div>
 
             <div className="space-y-1">
-              <h2 className="text-4xl sm:text-6xl font-black text-white font-mono tracking-tighter red-glow-text">
-                LEAP <span className="text-[#E92929] text-2xl sm:text-4xl font-mono">2026</span>
+              <h2 className="text-3xl min-[400px]:text-4xl sm:text-6xl font-black text-white font-mono tracking-tighter red-glow-text">
+                LEAP <span className="text-[#E92929] text-xl min-[400px]:text-2xl sm:text-4xl font-mono">2026</span>
               </h2>
-              <p className="text-sm font-semibold text-slate-200">
+              <p className="text-xs sm:text-sm font-semibold text-slate-200">
                 {t.leapLocation}
               </p>
-              <p className="text-xs font-mono font-bold text-[#E92929]">
+              <p className="text-[11px] sm:text-xs font-mono font-bold text-[#E92929]">
                 {t.leapDate}
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1 sm:pt-2">
               <button
                 onClick={onOpenMeeting}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/40 hover:scale-105"
+                className="w-full min-[400px]:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/40 hover:scale-105"
               >
                 <span>{t.leapBadge}</span>
                 <MapPin className="w-4 h-4" />
@@ -75,32 +75,32 @@ const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
           </div>
 
           {/* Primary Headline & Description Block */}
-          <div className="lg:col-span-7 space-y-6 text-start order-1 lg:order-2">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-start order-1 lg:order-2">
             
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.18] drop-shadow-lg">
+            <h1 className="text-2xl min-[380px]:text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.2] sm:leading-[1.18] drop-shadow-lg">
               <span>{t.mainHeadlinePrefix}</span>
-              <span className="text-[#E92929] red-glow-text font-mono">
+              <span className="text-[#E92929] red-glow-text font-mono inline-block">
                 {t.mainHeadlineHighlight}
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow">
+            <p className="text-sm sm:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow">
               {t.description}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
               <button
                 onClick={onOpenMeeting}
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/50 hover:shadow-[#E92929]/70 hover:-translate-y-0.5"
+                className="group relative inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-black text-xs sm:text-sm tracking-wider uppercase text-white bg-[#E92929] hover:bg-[#FF3B3B] transition-all shadow-xl shadow-[#E92929]/50 hover:shadow-[#E92929]/70"
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{t.ctaMeeting}</span>
               </button>
 
               <button
                 onClick={onScrollToChallenges}
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-sm tracking-wider uppercase text-white bg-black/60 backdrop-blur-md border border-white/20 hover:border-[#E92929] transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-7 sm:py-4 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase text-white bg-black/60 backdrop-blur-md border border-white/20 hover:border-[#E92929] transition-all shadow-lg"
               >
                 <MessageSquare className="w-4 h-4 text-[#E92929]" />
                 <span>{t.ctaTalk}</span>
@@ -112,22 +112,22 @@ const Hero: React.FC<HeroProps> = ({ onOpenMeeting, onScrollToChallenges }) => {
         </div>
 
         {/* Bottom Trust Metrics Bar */}
-        <div className="pt-8 border-t border-white/15">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="pt-6 sm:pt-8 border-t border-white/15">
+          <div className="grid grid-cols-2 min-[480px]:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
             {trustMetrics.map((m, idx) => {
               const IconComponent = m.icon;
               return (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-center space-y-2 shadow-lg hover:border-[#E92929]/50 transition-all group"
+                  className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 text-center space-y-1 sm:space-y-2 shadow-lg hover:border-[#E92929]/50 transition-all group"
                 >
-                  <IconComponent className="w-5 h-5 text-[#E92929] mx-auto group-hover:scale-110 transition-transform" />
+                  <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-[#E92929] mx-auto group-hover:scale-110 transition-transform" />
                   {m.number ? (
-                    <div className="text-xl sm:text-2xl font-black text-[#E92929] font-mono">
+                    <div className="text-lg sm:text-2xl font-black text-[#E92929] font-mono">
                       {m.number}
                     </div>
                   ) : null}
-                  <div className="text-xs font-bold text-white leading-snug">
+                  <div className="text-[11px] sm:text-xs font-bold text-white leading-snug">
                     {m.label}
                   </div>
                 </div>
