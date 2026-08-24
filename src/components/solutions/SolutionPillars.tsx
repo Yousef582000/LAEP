@@ -41,13 +41,13 @@ const SolutionPillars: React.FC<SolutionPillarsProps> = ({ onScrollToProducts })
       capabilities: lang === 'ar' ? ['منصات متعددة التجار', 'بوابات الدفع المحلية', 'مزامنة المخازن', 'إدارة العروض والعمولات'] : ['Multi-Vendor Portals', 'Local Gateway Integration', 'Inventory Sync', 'Commission Engine'],
       iconName: 'ShoppingBag',
     },
-    {
-      id: 'system-integration',
-      title: lang === 'ar' ? 'ربط وتكامل الأنظمة APIs' : 'System Integration & APIs',
-      description: lang === 'ar' ? 'توحيد بيانات الأنظمة المستقلة، والأنظمة المحاسبية (ERP)، والمخازن، وبوابات الدفع في بيئة واحدة متكاملة.' : 'Connecting isolated legacy software, ERP systems, POS terminals, and local payment providers into a single flow.',
-      capabilities: lang === 'ar' ? ['تكامل واجهات APIs', 'ربط أنظمة الـ ERP', 'بوابات الدفع السعودية', 'مزامنة البيانات لحظياً'] : ['RESTful & GraphQL APIs', 'ERP & CRM Integration', 'Saudi Payment Gateways', 'Real-Time Sync'],
-      iconName: 'Share2',
-    },
+    // {
+    //   id: 'system-integration',
+    //   title: lang === 'ar' ? 'ربط وتكامل الأنظمة APIs' : 'System Integration & APIs',
+    //   description: lang === 'ar' ? 'توحيد بيانات الأنظمة المستقلة، والأنظمة المحاسبية (ERP)، والمخازن، وبوابات الدفع في بيئة واحدة متكاملة.' : 'Connecting isolated legacy software, ERP systems, POS terminals, and local payment providers into a single flow.',
+    //   capabilities: lang === 'ar' ? ['تكامل واجهات APIs', 'ربط أنظمة الـ ERP', 'بوابات الدفع السعودية', 'مزامنة البيانات لحظياً'] : ['RESTful & GraphQL APIs', 'ERP & CRM Integration', 'Saudi Payment Gateways', 'Real-Time Sync'],
+    //   iconName: 'Share2',
+    // },
     // {
     //   id: 'product-modernization',
     //   title: lang === 'ar' ? 'تحديث وتطوير الأنظمة الحالية' : 'System Modernization',
